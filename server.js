@@ -10,13 +10,13 @@ app.set('layout', 'layouts/layout')
 app.use(expressLayout)
 app.use(express.static('public'))
 
-app.use('/king', indexRouter)
+app.use('/', indexRouter)
 
 if(process.env.NODE_ENV !== 'production') {
     require('dotenv').config()
 }
 const mongoose = require('mongoose')
-mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true})
+mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true, useUnifiedTopology: true })
 const db = mongoose.connection
 db.on('error', (err) => console.error(err))
 db.once('open', () => console.log('connected to mongoose'))
