@@ -1,0 +1,12 @@
+<h2>Serach Author</h2>
+<form action="/authors" method="GET">
+    <label>Name</label>
+    <br>
+  <input type="text" name="name" value="<%= searchOpt.name %>">
+  <br> <br>
+  <button type="submit">Search</button>
+</form>
+<br>
+<% authors.map(item => { %>
+     <div><%= item.name %></div>
+<% }) %>
