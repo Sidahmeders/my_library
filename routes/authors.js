@@ -8,8 +8,8 @@ router.get('/', async (req, res) => {
     if(req.query.name != null && req.query.name !== "") {
         searchOption.name = new RegExp(req.query.name, "i")
     }
-    const allAuthors = await Author.find(searchOption);
     try {
+        const allAuthors = await Author.find(searchOption);
         res.render('authors/index', {
             authors: allAuthors,
             searchOpt: req.query

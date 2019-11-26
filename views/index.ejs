@@ -1,1 +1,8 @@
-WellCome to The Home Page
+<h2>Recenctly Added Books</h2>
+
+<% books.map(book => { %>
+   <% if(book.coverImagePath != null) { %>
+    <img src="<%= book.coverImagePath %>" height="160px" width="105px">
+  <% } %>
+   
+ <% }) %>

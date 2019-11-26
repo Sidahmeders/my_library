@@ -1,0 +1,23 @@
+<h2>Serach Book</h2>
+<form action="/books" method="GET">
+    <div>
+      <label>Title</label> <br>
+      <input type="text" name="title" value="<%= searchOpt.title %>">
+    </div>
+    <div>
+      <label>Published After</label> <br>
+      <input type="date" name="publishedAfter" value="<%= searchOpt.publishedAfter %>">
+    </div>
+    <div>
+      <label>Published Before</label> <br>
+      <input type="date" name="publishedBefore" value="<%= searchOpt.publishedBefore %>">
+    </div>
+  <button type="submit">Search</button>
+</form>
+<div>
+  <% books.map(book => { %>
+     <%if(book.coverImagePath != null) { %>
+       <img height="150" width="100" src="<%= book.coverImagePath %>">
+    <% } %>
+ <% }) %>
+</div>
